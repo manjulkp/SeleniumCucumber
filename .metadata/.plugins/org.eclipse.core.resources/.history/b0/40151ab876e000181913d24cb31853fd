@@ -1,0 +1,74 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 3065868977,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BeforeActions.setUp()"
+            }
+          }
+        ],
+        "line": 8,
+        "name": "Validate Used  Search Cars Page",
+        "description": "",
+        "id": "acceptance-testing-to-validate-search-cars-page-is-working.;validate-used--search-cars-page",
+        "after": [
+          {
+            "result": {
+              "duration": 671757124,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AfterActions.tearDown(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 14018469024,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I navigate to the  Home Page \"https://www.carsguide.com.au\" of CarsGuide Website",
+            "match": {
+              "arguments": [
+                {
+                  "val": "https://www.carsguide.com.au",
+                  "offset": 30
+                }
+              ],
+              "location": "UsedCarSearchSteps.i_navigate_to_the_Home_Page_of_CarsGuide_Website(String)"
+            },
+            "keyword": "Given "
+          }
+        ],
+        "tags": [
+          {
+            "line": 7,
+            "name": "@Used-Car-SearchPositive"
+          }
+        ]
+      }
+    ],
+    "name": "Acceptance testing to validate Search Cars Page is working.",
+    "description": "In order to validate that \r\nthe Used Search Cars page is working\r\nPerforming the Acceptance Testing",
+    "id": "acceptance-testing-to-validate-search-cars-page-is-working.",
+    "keyword": "Feature",
+    "uri": "UsedCarSaleSearch.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@Used-Car-Search"
+      }
+    ]
+  }
+]

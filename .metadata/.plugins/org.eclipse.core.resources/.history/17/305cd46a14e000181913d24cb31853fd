@@ -1,0 +1,45 @@
+package utils;
+
+
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+
+public class SeleniumHelper extends Selenium{
+	
+
+    public static boolean isElementPresent(WebElement webElement) {
+        try {
+            boolean isPresent = webElement.isDisplayed();
+            return isPresent;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        
+    }
+    
+  
+ // if there is to capture for every failure 
+ 	public static void verifyEquals(String expected) {
+  String actual = driver.getTitle();
+ 		try {
+
+ 			Assert.assertEquals(actual, expected);
+
+ 		} catch (Throwable t) {
+
+// 			TestUtil.captureScreenshot();
+// 			// ReportNG
+// 			Reporter.log("<br>" + "Verification failure : " + t.getMessage() + "<br>");
+// 			Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src=" + TestUtil.screenshotName
+// 					+ " height=200 width=200></img></a>");
+// 			Reporter.log("<br>");
+// 			Reporter.log("<br>");
+// 			// Extent Reports
+// 			test.log(LogStatus.FAIL, " Verification failed with exception : " + t.getMessage());
+// 			test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
+
+ 		}
+    
+}
+}

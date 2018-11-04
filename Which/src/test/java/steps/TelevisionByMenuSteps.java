@@ -1,0 +1,64 @@
+package steps;
+
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import pages.actions.TelevisionFilter;
+import pages.actions.TelevisionSortByMenu;
+import utils.SeleniumDriver;
+
+public class TelevisionByMenuSteps {
+	
+	TelevisionSortByMenu televisionMenu = new TelevisionSortByMenu();
+	
+	
+	@When("^the sort by is selected as \"([^\"]*)\"$")
+	public void the_sort_by_is_selected_as(String menu) throws Throwable {
+		televisionMenu.selectMenu(menu);
+	}
+
+	@Then("^I see the Television review display according to the sort by option$")
+	public void i_see_the_Television_review_display_according_to_the_sort_by_option() throws Throwable {
+		televisionMenu.verifLowToHighDisplay();
+	}
+
+	@Then("^I am able to scroll up and down$")
+	public void i_am_able_to_scroll_up_and_down() throws Throwable {
+		SeleniumDriver.scrollDown();
+		SeleniumDriver.waitForPageToLoad();
+		SeleniumDriver.scrollUp();
+	    
+	}
+
+	@When("^I select \"([^\"]*)\" television product with \"([^\"]*)\" to compare the product$")
+	public void i_select_television_product_with_to_compare_the_product(String count, String arg2) throws Throwable {
+	    int  countInt = Integer.parseInt(count);
+		televisionMenu.addToCompare(countInt);
+	}
+
+	@Then("^I see that the selected products are added to compare pool$")
+	public void i_see_that_the_selected_products_are_added_to_compare_pool() throws Throwable {
+		televisionMenu.getProductCount();
+	}
+
+	@Then("^the option \"([^\"]*)\" is changed to \"([^\"]*)\"$")
+	public void the_option_is_changed_to(String arg1, String arg2) throws Throwable {
+		televisionMenu.removeFromCompare();
+	}
+
+	@When("^I select compare$")
+	public void i_select_compare() throws Throwable {
+		televisionMenu.compareClick();
+	}
+
+	@Then("^the user is navigated to \"([^\"]*)\" screen$")
+	public void the_user_is_navigated_to_screen(String title) throws Throwable {
+		SeleniumDriver.verifyEquals(title);
+	}
+
+	@Then("^the added products to be compared are seen$")
+	public void the_added_products_to_be_compared_are_seen() throws Throwable {
+		televisionMenu.getProductCountInCompareScreen();
+		SeleniumDriver.backNavigation();
+	}
+
+}

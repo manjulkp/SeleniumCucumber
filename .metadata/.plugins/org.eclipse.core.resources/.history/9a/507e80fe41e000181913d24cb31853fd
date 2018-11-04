@@ -1,0 +1,109 @@
+package utils;
+
+
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+
+
+public class SeleniumDriver {
+
+    private static SeleniumDriver seleniumDriver;
+ 
+    //initialize webdriver
+    public static WebDriver driver;
+    
+    //initialize timeouts
+    private static WebDriverWait waitDriver;
+    public final static int TIMEOUT = 30;
+    public final static int PAGE_LOAD_TIMEOUT = 50;
+
+    public static void   SeleniumDriver() {
+
+        System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+ "/src/test/resources/executable/geckodriver");
+    	driver = new FirefoxDriver();
+        driver.manage().window().maximize();
+        waitDriver = new WebDriverWait(driver, TIMEOUT);
+        driver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+        String window=driver.getWindowHandle();
+        System.out.println("Window ->"+window);
+       
+    }
+
+    public static void openPage(String url) {
+    	System.out.println(url);
+    	System.out.println(driver);
+        driver.get(url);
+    }
+
+    public static WebDriver getDriver() {
+        return driver;
+    }
+
+    public static void setUpDriver() {
+       if (seleniumDriver == null)
+            seleniumDriver = new SeleniumDriver();
+      
+    }
+
+    public static void tearDown() {
+        if (driver != null) {
+          
+            driver.quit();
+        }
+        seleniumDriver = null;
+    }
+    public static void waitForPageToLoad()
+    {
+    	try {
+			Thread.sleep(9000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    
+    
+ // if there is to capture for every failure 
+  	public static void verifyEquals(String expected) {
+   String actual = driver.getTitle();
+   System.out.println(actual);
+  		try {
+
+  			Assert.assertEquals(actual, expected);
+
+  		} catch (Throwable t) {
+
+  		}
+     
+ }
+
+    
+ // waitForXPathPresent() method is used to wait till specified xpath is clickable.
+ 	public static void waitForXPathPresent(String elementXPath){
+ 		WebDriverWait wait = new WebDriverWait(driver, 20);
+ 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementXPath)));
+ 	}
+ 	
+ 	public static void scrollToElement(WebElement element) {
+ 		  JavascriptExecutor js = (JavascriptExecutor)driver;
+ 	     js.executeScript("arguments[0].scrollIntoView(true);", element);
+ 	     js.executeScript("arguments[0].click();", element);
+ 	  }
+ 	
+ 	public static void select(WebElement element, String value) {
+		Select select = new Select(element);
+		select.selectByVisibleText(value);
+	}
+}

@@ -1,0 +1,27 @@
+package pages.actions;
+
+import org.openqa.selenium.support.PageFactory;
+
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import pages.locators.TelevisionFiltersLocators;
+import pages.locators.TelevisionSortByMenuLocators;
+import utils.SeleniumDriver;
+
+public class TelevisionSortByMenu {
+	
+TelevisionSortByMenuLocators televisionSortByMenuLocators=null;
+	
+	
+	public TelevisionSortByMenu()
+	{
+		
+		this.televisionSortByMenuLocators=new TelevisionSortByMenuLocators();
+		PageFactory.initElements(SeleniumDriver.getDriver(), televisionSortByMenuLocators);
+	}
+	
+	public void selectMenu(String menu)
+	{
+		SeleniumDriver.select(televisionSortByMenuLocators.sortByMenu, menu);
+	}
+}

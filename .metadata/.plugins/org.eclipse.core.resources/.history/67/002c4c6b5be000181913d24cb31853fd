@@ -1,0 +1,23 @@
+@tvreview
+Feature: Acceptance testing to validate Television Review Page is working.
+  In order to validate that 
+  the Television Review page is working
+  Doing the Acceptance Testing
+
+
+  
+    
+  Scenario: Validate Television Review Page with Sort By 
+    Given I am on the Home Page "https://www.which.co.uk/reviews/televisions" of Which Website
+    When the sort by is selected as "Price (low to high)"
+    Then I see the Television review display according to the sort by option
+    And I am able to scroll up and down 
+    When I select "3" television product with "Add to Compare" to compare the product
+    Then I see that the selected products are added to compare pool
+    And the option " Add to compare " is changed to "Remove from compare"
+    When I select compare
+    Then the user is navigated to "Compare Television - Which?" screen
+    And the added products to be compared are seen 
+    
+    
+    

@@ -1,0 +1,21 @@
+package pages.actions;
+
+import org.openqa.selenium.support.PageFactory;
+
+import pages.locators.CarsGuideHomePageLocators;
+import pages.locators.TelevisionFiltersLocators;
+import utils.SeleniumDriver;
+
+public class TelevisionFilter {
+	
+	TelevisionFiltersLocators televisionFiltersLocators=null;
+	
+	public TelevisionFilter()
+	{
+		
+		this.televisionFiltersLocators=new TelevisionFiltersLocators();
+		PageFactory.initElements(SeleniumDriver.getDriver(), televisionFiltersLocators);
+	}
+	
+
+}

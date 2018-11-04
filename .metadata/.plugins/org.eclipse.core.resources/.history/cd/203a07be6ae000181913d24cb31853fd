@@ -1,0 +1,44 @@
+package steps;
+
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import pages.actions.TelevisionBestBuy;
+import pages.actions.TelevisionSortByMenu;
+import utils.SeleniumDriver;
+
+public class TelevisionByBestBuy {
+	
+	TelevisionBestBuy televisionBestBuy = new TelevisionBestBuy();
+	
+	@When("^the user select \"([^\"]*)\"$")
+	public void the_user_select(String arg1) throws Throwable {
+		televisionBestBuy.selectMenu();
+		SeleniumDriver.waitForPageToLoad();
+	}
+
+	@Then("^the user is navigated to \"([^\"]*)\"$")
+	public void the_user_is_navigated_to(String title) throws Throwable {
+		SeleniumDriver.verifyEquals(title);
+	}
+
+	@When("^the page is refershed$")
+	public void the_page_is_refershed() throws Throwable {
+	    SeleniumDriver.refreshScreen();
+	}
+
+	@Then("^I see the webpage is still \"([^\"]*)\"$")
+	public void i_see_the_webpage_is_still(String title) throws Throwable {
+		SeleniumDriver.verifyEquals(title);
+	}
+
+	@When("^I select  \"([^\"]*)\" from top corner menu under TV & home entertainment$")
+	public void i_select_from_top_corner_menu_under_TV_home_entertainment(String arg1) throws Throwable {
+	  
+	}
+
+	@Then("^I see that user is navigated to \"([^\"]*)\" screen$")
+	public void i_see_that_user_is_navigated_to_screen(String arg1) throws Throwable {
+	 
+	}
+
+}

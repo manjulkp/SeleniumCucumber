@@ -1,0 +1,116 @@
+Task :
+
+3 happy Flow for Which Television is automated by cucumber 
+The ExtentReport can found at "file:///Users/mputtasetty/Which/Which/target/positive/cucumber.html/index.html"
+
+One of the test case is failed purposely inorder to capture the screenshot if there is failure 
+
+The scripts can be customized to run by adding a tag to a scenario ,particular feature file .
+
+1.The Framework can improved to work on different browser by putting a if statement in SeleniumDriver class 
+2.Finer touch like if there ia any action and the page is navigated to next screen ----that method can return the object of the next page 
+- like we add a product and click on compare the screen is navigated to compare screen 
+
+
+
+
+
+
+
+
+
+
+
+
+
+To Run the TestNG test
+/Which/src/test/resources/runner/testng.xml is used to execute
+
+
+To Run the Cucumber test
+/Users/mputtasetty/Which/Which/src/test/java/runners/PositiveTest.java
+
+What is it(Model used )
+
+Selenium POM (Page Object Model) is a Java framework that provides ability to describe your web application as a hierarchy of models. It also adds helper methods for most common functions such us double click, or get value.
+
+1. SeleniumDriver 
+- Has the driver initialized for Firefox
+-It can be extended to work for browser by adding if statement 
+-Has setup and tearDown methods 
+- Generic methods created for isElementPresent,Scroll Up ,Scroll Down ,Scroll until an element ......
+
+
+2. Locators 
+The obvious way out to get rid of duplication is to abstract the id's from the methods. An example of that using the signup page class would look like this.
+Requirements
+Example can be seen under "/Which/src/main/java/pages/locators"
+Now if we can call the same locator as many places we need and refer to it by the variable name.Also, if the locator changes we just need to change it at one common place.
+
+3.Page
+We are encapsulating all the business logic needed for each screen under
+"/Which/src/main/java/pages/actions"
+
+4.FeatureFiles :
+All the test cases are written in BDD -gerkin language 
+
+5.Steps:
+-convert the feature step into an executable specification using cucumber-jvm.
+Every step in the scneario needs to be matched with a glue code for the same.
+
+6.Runner :
+Even from the IDE, there are a couple of ways to run these feature files.
+Running it by setting the glue code path in Run Configuration setting.
+Running it through a specified runner class that can accomodate setting around the feature files and glue code location and much more.
+
+- By testNG
+-By Cucumber JVM
+-By Maven
+
+
+Project Pre-Requirement 
+
+
+Java 8
+Dependencies
+
+Selenium 3.0 or better
+Reflections 0.9.10 or better
+Google guice 4.0 or better (optional)
+Get it with Maven
+
+<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+				<configuration>
+					<testFailureIgnore> false </testFailureIgnore>
+					<suiteXmlFiles>
+						<suiteXmlFile>src/test/resources/runner/testng.xml</suiteXmlFile>
+
+					</suiteXmlFiles>
+				</configuration>
+
+
+
+
+
+			</plugin>
+
+
+		</plugins>
+		
+		</build>
+		
+Reporting :
+Cucumber Plugin for extentreport is used 
+The extent report can seen at "/Which/target/Extent_Reports"
+The cucumberTestNg report at "file:///Users/mputtasetty/Which/Which/target/positive/cucumber.html/index.html"
+
+If there is test case failed the screenshot is attached to the report .
+
+
+

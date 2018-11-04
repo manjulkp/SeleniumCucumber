@@ -1,0 +1,55 @@
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("UsedCarSaleSearch.feature");
+formatter.feature({
+  "line": 2,
+  "name": "Acceptance testing to validate Search Cars Page is working.",
+  "description": "In order to validate that \r\nthe Used Search Cars page is working\r\nPerforming the Acceptance Testing",
+  "id": "acceptance-testing-to-validate-search-cars-page-is-working.",
+  "keyword": "Feature",
+  "tags": [
+    {
+      "line": 1,
+      "name": "@Used-Car-Search"
+    }
+  ]
+});
+formatter.before({
+  "duration": 3065868977,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 8,
+  "name": "Validate Used  Search Cars Page",
+  "description": "",
+  "id": "acceptance-testing-to-validate-search-cars-page-is-working.;validate-used--search-cars-page",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 7,
+      "name": "@Used-Car-SearchPositive"
+    }
+  ]
+});
+formatter.step({
+  "line": 9,
+  "name": "I navigate to the  Home Page \"https://www.carsguide.com.au\" of CarsGuide Website",
+  "keyword": "Given "
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "https://www.carsguide.com.au",
+      "offset": 30
+    }
+  ],
+  "location": "UsedCarSearchSteps.i_navigate_to_the_Home_Page_of_CarsGuide_Website(String)"
+});
+formatter.result({
+  "duration": 14018469024,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 671757124,
+  "status": "passed"
+});
+});

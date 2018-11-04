@@ -1,0 +1,56 @@
+package pages.actions;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+
+import pages.locators.CarsGuideHomePageLocators;
+import pages.locators.TelevisionFiltersLocators;
+import utils.SeleniumDriver;
+
+public class TelevisionFilter {
+	
+	TelevisionFiltersLocators televisionFiltersLocators=null;
+	
+	public TelevisionFilter()
+	{
+		
+		this.televisionFiltersLocators=new TelevisionFiltersLocators();
+		PageFactory.initElements(SeleniumDriver.getDriver(), televisionFiltersLocators);
+	}
+	
+	public void selectScreenSize()
+	{
+		SeleniumDriver.scrollToElement(televisionFiltersLocators.screenSize);
+	}
+	
+	public void selectScreenType()
+	{
+		SeleniumDriver.scrollToElement(televisionFiltersLocators.screenSize);
+	}
+	
+	public int getCountBeforeFilter ()
+	{
+       String beforeCount = televisionFiltersLocators.count.getText();
+       int count = Integer.parseInt(beforeCount);
+       return count;
+	}
+	
+	public int getCountAfterFilter ()
+	{
+       String afterCount = televisionFiltersLocators.count.getText();
+       int count = Integer.parseInt(afterCount);
+       return count;
+	} 
+     
+	public void checkFilterisApplied()
+	{
+		int beforeCount = getCountBeforeFilter();
+		int afterCount = getCountAfterFilter();
+		Assert.assertTrue(beforeCount<afterCount,"The filter is not applied successfully");
+	}
+	
+	
+	
+
+}

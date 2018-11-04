@@ -1,0 +1,41 @@
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class test2 {
+	
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+	
+	System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+ "/src/test/resources/executable/geckodriver");
+	WebDriver driver = new FirefoxDriver();
+    driver.manage().window().maximize();
+    
+    
+
+    
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    
+    driver.get("https://www.which.co.uk/reviews/televisions");
+    Thread.sleep(7000);
+    driver.findElement(By.xpath("//button[@class='wui-button-priority-a']")).click();
+    
+    List <WebElement> ele = driver.findElements(By.xpath("//a[@data-tracking-element='sub-vertical-menu-item']"));
+    for(WebElement option : ele) {
+    	System.out.println(option.getText());
+        if (option.getText().equals("Televisions")) {
+            option.click();
+        }
+   
+    }
+	
+
+}
+}

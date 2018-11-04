@@ -1,0 +1,53 @@
+package pages.actions;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import pages.locators.TelevisionFiltersLocators;
+import pages.locators.TelevisionSortByMenuLocators;
+import utils.SeleniumDriver;
+
+public class TelevisionSortByMenu {
+	
+TelevisionSortByMenuLocators televisionSortByMenuLocators=null;
+	
+	
+	public TelevisionSortByMenu()
+	{
+		
+		this.televisionSortByMenuLocators=new TelevisionSortByMenuLocators();
+		PageFactory.initElements(SeleniumDriver.getDriver(), televisionSortByMenuLocators);
+	}
+	
+	public void selectMenu(String menu)
+	{
+		SeleniumDriver.select(televisionSortByMenuLocators.sortByMenu, menu);
+	}
+	
+	public void verifLowToHighDisplay()
+	{
+		List<WebElement> li = televisionSortByMenuLocators.getPrice;
+	    
+	    double value1 =0;
+	    for(int i =0;i<li.size()-1;i++)
+	    {
+	    	String t = li.get(i).getText();
+	    	t = t.substring(1);
+	    	t = t.replace(",", "");
+	    	double  value = Double.parseDouble(t);
+	    	
+			
+	    	if(value1<=value)
+	    	{
+	    		value1=value;
+	    	}else
+	    	{
+	    		System.out.println("incorrect display");
+	    	}
+	}
+}

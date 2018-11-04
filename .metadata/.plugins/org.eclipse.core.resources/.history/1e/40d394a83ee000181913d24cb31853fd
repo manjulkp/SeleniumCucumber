@@ -1,0 +1,52 @@
+package steps;
+
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+public class TelevisionByMenuSteps {
+	@When("^the sort by is selected as \"([^\"]*)\"$")
+	public void the_sort_by_is_selected_as(String arg1) throws Throwable {
+	   
+	}
+
+	@Then("^I see the Television review display according to the sort by option$")
+	public void i_see_the_Television_review_display_according_to_the_sort_by_option() throws Throwable {
+	    
+	}
+
+	@Then("^I am able to scroll up and down$")
+	public void i_am_able_to_scroll_up_and_down() throws Throwable {
+	    
+	}
+
+	@When("^I select \"([^\"]*)\" television product with \"([^\"]*)\" to compare the product$")
+	public void i_select_television_product_with_to_compare_the_product(String arg1, String arg2) throws Throwable {
+	    
+	}
+
+	@Then("^I see that the selected products are added to compare pool$")
+	public void i_see_that_the_selected_products_are_added_to_compare_pool() throws Throwable {
+	    
+	}
+
+	@Then("^the option \"([^\"]*)\" is changed to \"([^\"]*)\"$")
+	public void the_option_is_changed_to(String arg1, String arg2) throws Throwable {
+	    
+	}
+
+	@When("^I select compare$")
+	public void i_select_compare() throws Throwable {
+	    
+	}
+
+	@Then("^the user is navigated to \"([^\"]*)\" screen$")
+	public void the_user_is_navigated_to_screen(String arg1) throws Throwable {
+	   
+	}
+
+	@Then("^the added products to be compared are seen$")
+	public void the_added_products_to_be_compared_are_seen() throws Throwable {
+	   
+	}
+
+}

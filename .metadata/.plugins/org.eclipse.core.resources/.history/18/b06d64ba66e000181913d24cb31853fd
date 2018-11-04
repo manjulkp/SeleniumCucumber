@@ -1,0 +1,43 @@
+package pages.actions;
+
+import org.openqa.selenium.support.PageFactory;
+
+import pages.locators.TelevisionBestBuyLocator;
+import pages.locators.TelevisionFiltersLocators;
+import utils.SeleniumDriver;
+
+public class TelevisionBestBuy {
+	
+TelevisionBestBuyLocator televisionBestBuyLocators=null;
+	
+	
+	public TelevisionBestBuy()
+	{
+		this.televisionBestBuyLocators=new TelevisionBestBuyLocator();
+		PageFactory.initElements(SeleniumDriver.getDriver(), televisionBestBuyLocators);
+	}
+	
+	public void selectMenu()
+	{
+		televisionBestBuyLocators.bestBuy.click();
+	}
+	
+	public void selectHomeEntertain()
+	{
+		televisionBestBuyLocators.telHomeEntertain.click();
+		
+		Actions action = new Actions(driver);    
+		WebElement optionsList = driver.findElement(By.xpath("//span[contains(@class, 'k-dropdown-wrap')]"));
+		action.moveToElement(optionsList);
+
+		List<WebElement> options = driver.getElemets(By.xpath("//span[contains(@class, 'k-input')]"));
+		for(WebElement option : options) {
+		    if (option.getText().equals("Texas")) {
+		        option.click();
+		    }
+		}
+	}
+	
+	
+
+}

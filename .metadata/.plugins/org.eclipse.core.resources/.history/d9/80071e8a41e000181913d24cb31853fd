@@ -1,0 +1,21 @@
+package pages.locators;
+
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.How;
+
+public class TelevisionSortByMenuLocators {
+	
+	@FindBy(how=How.XPATH,using="//select[@name='sortby']")
+	public static WebElement sortByMenu;
+
+	
+	@FindBys({
+	    @FindBy(how = How.XPATH, using = "//p[@data-test-element='product-amount']")
+	})
+	public static List<WebElement> getPrice;
+
+}

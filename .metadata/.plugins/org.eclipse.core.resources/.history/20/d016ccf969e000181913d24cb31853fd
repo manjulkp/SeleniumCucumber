@@ -1,0 +1,15 @@
+package pages.locators;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+
+public class TelevisionBestBuyLocator {
+	@FindBy(how=How.XPATH,using="//a[@data-which-id='active-false']")
+	public static WebElement bestBuy;
+	
+	
+	@FindBy(how=How.XPATH,using="//button[@class='wui-button-priority-a']")
+	public static WebElement telHomeEntertain;
+
+}
